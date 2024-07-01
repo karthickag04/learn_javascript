@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Operator Calculator</title>
+    <style>
+        .container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .calculator input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .calculator button {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .calculator button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="calculator">
+    <input type="text" id="num1" placeholder="Enter first number">
+    <input type="text" id="num2" placeholder="Enter second number">
+    <br>
+    <button onclick="calculate('add')">+</button>
+    <button onclick="calculate('subtract')">-</button>
+    <button onclick="calculate('multiply')">*</button>
+    <button onclick="calculate('divide')">/</button>
+    <br>
+    <input type="text" id="result" placeholder="Result" readonly>
+</div>
+</div>
+
+<script>
+    function calculate(operator) {
+        var num1 = parseFloat(document.getElementById('num1').value);
+        var num2 = parseFloat(document.getElementById('num2').value);
+        var result;
+
+        // if (operator === 'add') {
+        //     result = num1 + num2;
+        // } else if (operator === 'subtract') {
+        //     result = num1 - num2;
+        // } else if (operator === 'multiply') {
+        //     result = num1 * num2;
+        // } else if (operator === 'divide') {
+        //     result = num1 / num2;
+        // } else {
+        //     result = 'Invalid operation';
+        // }
+        switch(operator)
+        {
+            case 'add':
+                result = num1 + num2;
+                break;
+            case 'subtract':
+                result = num1 - num2;
+                break;
+            case 'multiply':
+                result = num1 * num2;
+                break;
+          
+            default:{
+                result = 'Invalid operation';
+            }
+        }
+
+        document.getElementById('result').value = result;
+    }
+</script>
+
+</body>
+</html>

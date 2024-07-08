@@ -15,6 +15,7 @@ function GetResultFun() {
 
     // Round the number 4.4 to the nearest integer
     console.log(Math.round(4.4));
+    console.log("*************");
 
     // Round the number 4.5 down to the nearest integer
     console.log(Math.floor(4.5));
@@ -29,13 +30,22 @@ function GetResultFun() {
     console.log(Math.pow(4, 2));
 
     // Generate a random number between 1000 and 1010 (inclusive) and round it down
+
+    console.log(Math.random());
+
+    console.log(Math.ceil(Math.random()));
+    console.log(Math.random() * 10);
+    console.log(Math.ceil(Math.random() * 10));
+   
+   
+    // Generate a random number between 1000 and 1010 (inclusive) and round it down
     console.log(Math.floor(Math.random() * 10 + 1000));
 
     // Calculate the absolute value of -4.75
     console.log(Math.abs(-4.75));
 
     // Round the number -4.75 down to the nearest integer
-    console.log(Math.floor(-4.75));
+    console.log(Math.floor(-4.1));
 
     // Find the minimum value among 20, 25, 35, and 25
     console.log(Math.min(20, 25, 35, 25));

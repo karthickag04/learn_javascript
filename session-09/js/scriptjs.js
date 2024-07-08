@@ -1,6 +1,6 @@
 function GetResultFun() {
 
-    var text = "welcome to welcome javascript to program organized by brightskills and brightskills welcomes to you once again    ";
+    var text = "welcome to welcome javascript to program organized by gtec and gtec welcomes to you once again";
 
     // Convert the entire string to uppercase
     var output = text.toUpperCase();
@@ -11,7 +11,7 @@ function GetResultFun() {
     console.log(output);
 
     // Extract a substring from the string, starting from index 0 and ending at index 4 (not inclusive)
-    output = text.slice(0, 4);
+    output = text.slice(0, 9);
     console.log(output);
 
     // Extract the last 10 characters from the string
@@ -28,7 +28,7 @@ function GetResultFun() {
     console.log(output);
 
     // Get the character at index 0
-    output = text.charAt(0);
+    output = text.charAt(4);
     console.log(output);
 
     // Get the Unicode value of the character at index 0
@@ -36,7 +36,7 @@ function GetResultFun() {
     console.log(output);
 
     // Check if the string starts with "w"
-    output = text.startsWith("w");
+    output = text.startsWith("W");
     console.log(output);
 
     // Check if the string ends with "n"
@@ -52,24 +52,32 @@ function GetResultFun() {
     console.log(output);
 
     // Pad the string "5" at the start with "B" until the length is 5
-    var number = "5";
-    number = number.padStart(5, "B");
+    var number = "10";
+    number = number.padStart(10, "w");
     console.log(number);
+    console.log(number.length);
 
     // Pad the string "5" at the end with "B" until the length is 5
     number = "5";
     number = number.padEnd(5, "B");
     console.log(number);
+    console.log(number.length);
+
+    var text = "welcome to welcome avascript,to program organized by gtec and gtec welcomes to you once again";
 
     // Split the string into an array of substrings based on spaces
-    console.table(text.split(" "));
+    console.table(text.split(","));
 
     // Get the length of the string
     console.log(text.length);
+    console.log("***************************");
 
-    // Trim leading and trailing spaces from the string and get the length of the trimmed string
-    var text1 = text.trim();
+
+    text1="   welcome to javascript string   "
     console.log(text1.length);
+    // Trim leading and trailing spaces from the string and get the length of the trimmed string
+    var text2 = text1.trim();
+    console.log(text2.length);
 }
 
 // Call the function to execute the above code

@@ -1,0 +1,165 @@
+// 1. Create a variable using `var`, assign a value, and print it to the console.
+var variable = 10;
+console.log(variable);
+
+// 2. Declare a variable using `let`, change its value, and log the output.
+let variable2 = 20;
+variable2 = 30;
+console.log(variable2);
+
+// 3. Use `const` to create a constant, attempt to reassign it, and observe the error.
+const constant = 40;
+// constant = 50; // Uncomment this line to see the error
+
+// 4. Write a program that uses all arithmetic operators (+, -, *, /, %) in calculations.
+let result = 10 + 20 - 30 * 40 / 50 % 60;
+console.log(result);
+
+// 5. Demonstrate the use of the assignment operators (=, +=, -=) with examples.
+let assignment = 10;
+assignment += 20;
+assignment -= 30;
+console.log(assignment);
+
+// 6. Write a program that checks the type of variables using `typeof`.
+let typeCheck = 10;
+console.log(typeof typeCheck);
+
+// 7. Convert a string to a number and vice versa using type conversion.
+let stringToNumber = Number("10");
+let numberToString = String(20);
+console.log(stringToNumber, numberToString);
+
+// 8. Create a function that takes two numbers as arguments and returns their sum.
+function sum(a, b) {
+  return a + b;
+}
+console.log(sum(10, 20));
+
+// 9. Write an arrow function that multiplies two numbers and logs the result.
+let multiply = (a, b) => console.log(a * b);
+multiply(10, 20);
+
+// 10. Compare two numbers using relational operators (> , < , == , ===) and log the results.
+let comparison = 10 > 20;
+console.log(comparison);
+
+// 11. Define an object representing a car with properties like `brand`, `model`, and `year`.
+let car = {
+  brand: "Toyota",
+  model: "Corolla",
+  year: 2020,
+};
+console.log(car);
+
+// 12. Add a new property to an object using dot and bracket notation.
+car.color = "Red";
+car["mileage"] = 10000;
+console.log(car);
+
+// 13. Create a method inside an object to calculate the car's age and call it.
+car.calculateAge = function () {
+  return 2023 - this.year;
+};
+console.log(car.calculateAge());
+
+// 14. Display the properties of an object using a loop (e.g., `for...in`).
+for (let key in car) {
+  console.log(key, car[key]);
+}
+
+// 15. Demonstrate the difference between `==` and `===` with examples.
+let equality = 10 == "10";
+let strictEquality = 10 === "10";
+console.log(equality, strictEquality);
+
+// 16. Use a function to determine if a given number is even or odd.
+function isEven(number) {
+  return number % 2 === 0;
+}
+console.log(isEven(10));
+
+// 17. Create an arrow function that accepts a name and returns a greeting message.
+let greet = (name) => `Hello, ${name}!`;
+console.log(greet("John"));
+
+// 18. Use a function to return the larger of two numbers using a conditional statement.
+function larger(a, b) {
+  return a > b ? a : b;
+}
+console.log(larger(10, 20));
+
+// 19. Create an object with a method to print all its key-value pairs to the console.
+let person = {
+  name: "John",
+  age: 30,
+  printInfo: function () {
+    for (let key in this) {
+      console.log(key, this[key]);
+    }
+  },
+};
+person.printInfo();
+
+// 20. Write a program that creates a new object using the `Object.assign()` method.
+let newPerson = Object.assign({}, person);
+console.log(newPerson);
+
+// 21. Demonstrate the use of the `typeof` operator on different data types (string, number, boolean).
+console.log(typeof "string", typeof 10, typeof true);
+
+// 22. Write a program to convert a boolean to a string and a string to a boolean.
+let booleanToString = String(true);
+let stringToBoolean = Boolean("true");
+console.log(booleanToString, stringToBoolean);
+
+// 23. Define a function using `function` syntax and another using arrow function syntax. Compare them.
+function add(a, b) {
+  return a + b;
+}
+let addArrow = (a, b) => a + b;
+console.log(add(10, 20), addArrow(10, 20));
+
+// 24. Create an object with nested objects and access a property in the nested object.
+let nestedObject = {
+  person: {
+    name: "John",
+    age: 30,
+  },
+};
+console.log(nestedObject.person.name);
+
+// 25. Use template literals to create a string that includes dynamic data from variables.
+let templateString = `Hello, ${nestedObject.person.name}!`;
+console.log(templateString);
+
+// 26. Write a function that accepts an object and returns the keys and values as a string.
+function objectToString(obj) {
+  let result = "";
+  for (let key in obj) {
+    result += `${key}: ${obj[key]}, `;
+  }
+  return result;
+}
+console.log(objectToString(nestedObject));
+
+// 27. Demonstrate the use of unary operators (+, -) on variables.
+let unaryPlus = +10;
+let unaryMinus = -10;
+console.log(unaryPlus, unaryMinus);
+
+// 28. Write a function that calculates the factorial of a number using recursion.
+function factorial(n) {
+  if (n === 0) return 1;
+  return n * factorial(n - 1);
+}
+console.log(factorial(5));
+
+// 29. Use a ternary operator to check if a number is positive, negative, or zero.
+let ternaryCheck = (number) =>
+  number > 0 ? "Positive" : number < 0 ? "Negative" : "Zero";
+console.log(ternaryCheck(10));
+
+// 30. Create an arrow function that filters an array of numbers, returning only even numbers.
+let filterEven = (numbers) => numbers.filter((number) => number % 2 === 0);
+console.log(filterEven([1, 2, 3, 4, 5, 6]));

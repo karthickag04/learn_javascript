@@ -1,0 +1,30 @@
+1, Create a variable using `var`, assign a value, and print it to the console.
+2, Declare a variable using `let`, change its value, and log the output.
+3, Use `const` to create a constant, attempt to reassign it, and observe the error.
+4, Write a program that uses all arithmetic operators (+, -, *, /, %) in calculations.
+5, Demonstrate the use of the assignment operators (=, +=, -=) with examples.
+6, Write a program that checks the type of variables using `typeof`.
+7, Convert a string to a number and vice versa using type conversion.
+8, Create a function that takes two numbers as arguments and returns their sum.
+9, Write an arrow function that multiplies two numbers and logs the result.
+10, Compare two numbers using relational operators (`>`, `<`, `==`, `===`) and log the results.
+11, Define an object representing a car with properties like `brand`, `model`, and `year`.
+12, Add a new property to an object using dot and bracket notation.
+13, Create a method inside an object to calculate the car's age and call it.
+14, Display the properties of an object using a loop (e.g., `for...in`).
+15, Demonstrate the difference between `==` and `===` with examples.
+16, Use a function to determine if a given number is even or odd.
+17, Create an arrow function that accepts a name and returns a greeting message.
+18, Use a function to return the larger of two numbers using a conditional statement.
+19, Create an object with a method to print all its key-value pairs to the console.
+20, Write a program that creates a new object using the `Object.assign()` method.
+21, Demonstrate the use of the `typeof` operator on different data types (string, number, boolean).
+22, Write a program to convert a boolean to a string and a string to a boolean.
+23, Define a function using `function` syntax and another using arrow function syntax. Compare them.
+24, Create an object with nested objects and access a property in the nested object.
+25, Use template literals to create a string that includes dynamic data from variables.
+26, Write a function that accepts an object and returns the keys and values as a string.
+27, Demonstrate the use of unary operators (`+`, `-`) on variables.
+28, Write a function that calculates the factorial of a number using recursion.
+29, Use a ternary operator to check if a number is positive, negative, or zero.
+30, Create an arrow function that filters an array of numbers, returning only even numbers.

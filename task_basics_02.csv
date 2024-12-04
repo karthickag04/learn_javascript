@@ -1,0 +1,30 @@
+1, Create a variable using `var` and assign it a string value. Log the type using `typeof`.
+2, Write a program that declares a variable using `let` and reassigns it a new value. Log both values.
+3, Create a `const` variable to store an object. Modify a property of the object and log the result.
+4, Perform compound assignment operations (`+=`, `-=`, `*=`, `/=`) on a variable and log the final value.
+5, Write a program to calculate the area of a rectangle using multiplication and store the result in a variable.
+6, Use `typeof` to check the data type of a number, string, and boolean variable.
+7, Create a function that takes two numbers as arguments and returns their sum.
+8, Write a program to convert a string `"123"` to a number and a number `456` to a string.
+9, Create an object representing a car with properties like `brand`, `model`, and `year`. Log each property.
+10, Write a program to update the `year` property of a car object and log the updated object.
+11, Create an object with a method that calculates the sum of two numbers and returns the result.
+12, Write a program that converts a boolean `true` to a string and `false` to a number.
+13, Use the `typeof` operator to check the type of `null` and `undefined`.
+14, Write a function expression stored in a variable that multiplies two numbers and returns the result.
+15, Convert a decimal number to a string with two decimal places using type conversion.
+16, Create an arrow function that takes a name as an argument and returns a greeting message.
+17, Compare two strings `"apple"` and `"banana"` using comparison operators and log the results.
+18, Write a program to check if a number is even or odd using the modulo operator and comparison.
+19, Create an object with nested properties (e.g., a `person` object with `address` and `contacts`) and access nested values.
+20, Write a program to loop through an object’s properties and log each key-value pair.
+21, Create a function that calculates the factorial of a given number using recursion.
+22, Write a program that takes a string input and checks if it is a palindrome.
+23, Use `let` inside a block scope and log the value inside and outside the block.
+24, Declare a `const` object representing a book. Add a new property to the object and log the result.
+25, Create a function that calculates the power of a number using the exponentiation operator (`**`).
+26, Write an arrow function that filters out even numbers from an array and returns the odd numbers.
+27, Use strict equality (`===`) to compare a string `"5"` and a number `5` and log the result.
+28, Write a function that accepts a variable number of arguments and returns their average.
+29, Create a `const` object to represent a `user`. Freeze the object using `Object.freeze()` and attempt modifications.
+30, Write a program that uses a ternary operator to check if a number is positive, negative, or zero and log the result.

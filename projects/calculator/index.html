@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .calculator {
+            background: #1a1a2e;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            max-width: 320px;
+            width: 100%;
+        }
+
+        .display {
+            background: #16213e;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: right;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .previous-operand {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            min-height: 20px;
+        }
+
+        .current-operand {
+            color: white;
+            font-size: 32px;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            border: none;
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .number {
+            background: #374151;
+            color: white;
+        }
+
+        .number:hover {
+            background: #4b5563;
+        }
+
+        .operator {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .operator:hover {
+            background: #d97706;
+        }
+
+        .clear {
+            background: #ef4444;
+            color: white;
+        }
+
+        .clear:hover {
+            background: #dc2626;
+        }
+
+        .delete {
+            background: #6b7280;
+            color: white;
+        }
+
+        .delete:hover {
+            background: #4b5563;
+        }
+
+        .equals {
+            background: #10b981;
+            color: white;
+            grid-column: span 2;
+        }
+
+        .equals:hover {
+            background: #059669;
+        }
+
+        .span-two {
+            grid-column: span 2;
+        }
+
+        .instructions {
+            color: white;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .instructions code {
+            background: rgba(255,255,255,0.2);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Calculator</h1>
+    
+    <div class="calculator">
+        <div class="display">
+            <div class="previous-operand" id="previous-operand"></div>
+            <div class="current-operand" id="current-operand">0</div>
+        </div>
+        
+        <div class="buttons">
+            <button class="clear span-two" id="clear">AC</button>
+            <button class="delete" id="delete">DEL</button>
+            <button class="operator" data-operator="/">÷</button>
+            
+            <button class="number" data-number="7">7</button>
+            <button class="number" data-number="8">8</button>
+            <button class="number" data-number="9">9</button>
+            <button class="operator" data-operator="*">×</button>
+            
+            <button class="number" data-number="4">4</button>
+            <button class="number" data-number="5">5</button>
+            <button class="number" data-number="6">6</button>
+            <button class="operator" data-operator="-">−</button>
+            
+            <button class="number" data-number="1">1</button>
+            <button class="number" data-number="2">2</button>
+            <button class="number" data-number="3">3</button>
+            <button class="operator" data-operator="+">+</button>
+            
+            <button class="number" data-number="0">0</button>
+            <button class="number" data-number=".">.</button>
+            <button class="equals" id="equals">=</button>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <p>Keyboard support: Numbers, operators (+, -, *, /), Enter for equals, Escape for clear, Backspace for delete</p>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

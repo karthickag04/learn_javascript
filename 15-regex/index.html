@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 - Regular Expressions</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 50px auto; padding: 20px; }
+        h1 { color: #333; }
+        h2 { color: #555; margin-top: 30px; }
+        p { line-height: 1.6; }
+        .note { background: #f0f8ff; padding: 15px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f4f4f4; }
+        .demo-section { background: #f9f9f9; padding: 20px; margin: 20px 0; border-radius: 8px; border: 1px solid #ddd; }
+        .input-demo { padding: 10px; font-size: 16px; margin: 5px; border: 2px solid #ddd; border-radius: 5px; width: 300px; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; font-size: 14px; border-radius: 5px; background: #007bff; color: white; border: none; }
+        .output-box { background: #333; color: #0f0; padding: 15px; font-family: monospace; min-height: 50px; margin: 10px 0; border-radius: 5px; white-space: pre-wrap; }
+        .valid { border-color: #28a745 !important; background-color: #d4edda; }
+        .invalid { border-color: #dc3545 !important; background-color: #f8d7da; }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Regular Expressions</h1>
+    
+    <div class="note">
+        <p><strong>Regular Expressions (Regex)</strong> are patterns used to match character combinations in strings. They are powerful tools for searching, validating, and manipulating text.</p>
+    </div>
+
+    <h2>Regex Syntax Quick Reference</h2>
+    <table>
+        <tr><th>Pattern</th><th>Description</th><th>Example</th></tr>
+        <tr><td><code>.</code></td><td>Any character except newline</td><td><code>a.c</code> matches "abc", "a1c"</td></tr>
+        <tr><td><code>\d</code></td><td>Digit (0-9)</td><td><code>\d\d</code> matches "12", "99"</td></tr>
+        <tr><td><code>\w</code></td><td>Word character (a-z, A-Z, 0-9, _)</td><td><code>\w+</code> matches "hello"</td></tr>
+        <tr><td><code>\s</code></td><td>Whitespace</td><td><code>a\sb</code> matches "a b"</td></tr>
+        <tr><td><code>^</code></td><td>Start of string</td><td><code>^Hello</code> starts with "Hello"</td></tr>
+        <tr><td><code>$</code></td><td>End of string</td><td><code>world$</code> ends with "world"</td></tr>
+        <tr><td><code>*</code></td><td>0 or more</td><td><code>ab*</code> matches "a", "ab", "abb"</td></tr>
+        <tr><td><code>+</code></td><td>1 or more</td><td><code>ab+</code> matches "ab", "abb"</td></tr>
+        <tr><td><code>?</code></td><td>0 or 1</td><td><code>colou?r</code> matches "color", "colour"</td></tr>
+        <tr><td><code>{n}</code></td><td>Exactly n times</td><td><code>\d{4}</code> matches "2023"</td></tr>
+        <tr><td><code>[abc]</code></td><td>Character class</td><td><code>[aeiou]</code> matches vowels</td></tr>
+        <tr><td><code>(abc)</code></td><td>Capturing group</td><td><code>(\d+)-(\d+)</code> captures numbers</td></tr>
+    </table>
+
+    <h2>Flags</h2>
+    <table>
+        <tr><th>Flag</th><th>Description</th></tr>
+        <tr><td><code>g</code></td><td>Global - match all occurrences</td></tr>
+        <tr><td><code>i</code></td><td>Case-insensitive</td></tr>
+        <tr><td><code>m</code></td><td>Multi-line</td></tr>
+        <tr><td><code>s</code></td><td>Dotall - dot matches newlines</td></tr>
+        <tr><td><code>u</code></td><td>Unicode</td></tr>
+    </table>
+
+    <hr>
+    <h2>Interactive Demos</h2>
+
+    <div class="demo-section">
+        <h3>Email Validator</h3>
+        <input type="text" id="email-input" class="input-demo" placeholder="Enter email address">
+        <div class="output-box" id="email-output">Enter an email to validate...</div>
+    </div>
+
+    <div class="demo-section">
+        <h3>Phone Number Validator</h3>
+        <input type="text" id="phone-input" class="input-demo" placeholder="Enter phone number">
+        <div class="output-box" id="phone-output">Enter a phone number to validate...</div>
+    </div>
+
+    <div class="demo-section">
+        <h3>Password Strength Checker</h3>
+        <input type="password" id="password-input" class="input-demo" placeholder="Enter password">
+        <div class="output-box" id="password-output">Enter a password to check strength...</div>
+    </div>
+
+    <div class="demo-section">
+        <h3>Regex Tester</h3>
+        <input type="text" id="regex-pattern" class="input-demo" placeholder="Enter regex pattern">
+        <input type="text" id="regex-test" class="input-demo" placeholder="Enter text to test">
+        <button id="regex-btn">Test</button>
+        <div class="output-box" id="regex-output">Enter a pattern and text to test...</div>
+    </div>
+
+    <p>Open the browser console (F12) to see detailed JavaScript output.</p>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

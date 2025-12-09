@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 - Event Listeners</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 50px auto; padding: 20px; }
+        h1 { color: #333; }
+        h2 { color: #555; margin-top: 30px; }
+        p { line-height: 1.6; }
+        .note { background: #f0f8ff; padding: 15px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f4f4f4; }
+
+        /* Demo elements */
+        .demo-section { background: #f9f9f9; padding: 20px; margin: 20px 0; border-radius: 8px; border: 1px solid #ddd; }
+        
+        button { 
+            padding: 10px 20px; 
+            margin: 5px; 
+            cursor: pointer; 
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #333;
+        }
+        
+        .btn-primary { background: #007bff; color: white; border-color: #007bff; }
+        .btn-success { background: #28a745; color: white; border-color: #28a745; }
+        .btn-danger { background: #dc3545; color: white; border-color: #dc3545; }
+        .btn-warning { background: #ffc107; color: black; border-color: #ffc107; }
+        
+        .hover-box {
+            width: 200px;
+            height: 100px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            transition: all 0.3s;
+        }
+        
+        .input-demo {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+        }
+        
+        .output-box {
+            background: #333;
+            color: #0f0;
+            padding: 15px;
+            font-family: monospace;
+            min-height: 50px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .color-box {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+        
+        .drag-box {
+            width: 80px;
+            height: 80px;
+            background: #ff6b6b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            border-radius: 8px;
+        }
+        
+        .drop-zone {
+            width: 200px;
+            height: 100px;
+            border: 3px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        
+        .key-display {
+            font-size: 24px;
+            padding: 20px;
+            text-align: center;
+            background: #f0f0f0;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Event Listeners</h1>
+    
+    <div class="note">
+        <p><strong>Event Listeners</strong> allow JavaScript to respond to user interactions like clicks, key presses, mouse movements, and more.</p>
+    </div>
+
+    <h2>Common Events</h2>
+    <table>
+        <tr><th>Category</th><th>Events</th></tr>
+        <tr><td>Mouse</td><td><code>click</code>, <code>dblclick</code>, <code>mouseenter</code>, <code>mouseleave</code>, <code>mousemove</code></td></tr>
+        <tr><td>Keyboard</td><td><code>keydown</code>, <code>keyup</code>, <code>keypress</code></td></tr>
+        <tr><td>Form</td><td><code>submit</code>, <code>change</code>, <code>input</code>, <code>focus</code>, <code>blur</code></td></tr>
+        <tr><td>Window</td><td><code>load</code>, <code>resize</code>, <code>scroll</code></td></tr>
+        <tr><td>Drag & Drop</td><td><code>dragstart</code>, <code>drag</code>, <code>drop</code>, <code>dragover</code></td></tr>
+    </table>
+
+    <hr>
+    <h2>Interactive Demos</h2>
+
+    <!-- Demo 1: Click Events -->
+    <div class="demo-section">
+        <h3>1. Click Events</h3>
+        <button id="btn-click" class="btn-primary">Click Me!</button>
+        <button id="btn-dblclick" class="btn-success">Double Click Me!</button>
+        <div class="output-box" id="click-output">Click events will appear here...</div>
+    </div>
+
+    <!-- Demo 2: Mouse Events -->
+    <div class="demo-section">
+        <h3>2. Mouse Events</h3>
+        <div class="hover-box" id="hover-box">Hover over me!</div>
+        <div class="output-box" id="mouse-output">Mouse events will appear here...</div>
+    </div>
+
+    <!-- Demo 3: Keyboard Events -->
+    <div class="demo-section">
+        <h3>3. Keyboard Events</h3>
+        <input type="text" id="key-input" class="input-demo" placeholder="Type something...">
+        <div class="key-display" id="key-display">Press a key...</div>
+        <div class="output-box" id="key-output">Key events will appear here...</div>
+    </div>
+
+    <!-- Demo 4: Input Events -->
+    <div class="demo-section">
+        <h3>4. Input Events</h3>
+        <input type="text" id="input-demo" class="input-demo" placeholder="Type here...">
+        <input type="text" id="input-demo2" class="input-demo" placeholder="Click out after typing...">
+        <div class="output-box" id="input-output">Input events will appear here...</div>
+    </div>
+
+    <!-- Demo 5: Form Events -->
+    <div class="demo-section">
+        <h3>5. Form Events</h3>
+        <form id="demo-form">
+            <input type="text" name="username" class="input-demo" placeholder="Username" required>
+            <input type="email" name="email" class="input-demo" placeholder="Email" required>
+            <button type="submit" class="btn-primary">Submit</button>
+            <button type="reset" class="btn-warning">Reset</button>
+        </form>
+        <div class="output-box" id="form-output">Form events will appear here...</div>
+    </div>
+
+    <!-- Demo 6: Focus Events -->
+    <div class="demo-section">
+        <h3>6. Focus & Blur Events</h3>
+        <input type="text" id="focus-input" class="input-demo" placeholder="Focus on me...">
+        <div class="output-box" id="focus-output">Focus/blur events will appear here...</div>
+    </div>
+
+    <!-- Demo 7: Color Boxes (Multiple Elements) -->
+    <div class="demo-section">
+        <h3>7. Event Delegation (Multiple Elements)</h3>
+        <div id="color-container">
+            <div class="color-box" data-color="red" style="background: #ff6b6b;"></div>
+            <div class="color-box" data-color="green" style="background: #51cf66;"></div>
+            <div class="color-box" data-color="blue" style="background: #339af0;"></div>
+            <div class="color-box" data-color="yellow" style="background: #ffd43b;"></div>
+        </div>
+        <div class="output-box" id="color-output">Click a color box...</div>
+    </div>
+
+    <!-- Demo 8: Scroll & Resize (instructions) -->
+    <div class="demo-section">
+        <h3>8. Window Events</h3>
+        <p>Scroll or resize the window to see events in the console.</p>
+        <div class="output-box" id="window-output">Window events will appear here...</div>
+    </div>
+
+    <p>Open the browser console (F12) to see detailed JavaScript output.</p>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

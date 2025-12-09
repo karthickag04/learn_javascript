@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Image Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Placeholder slides with gradients */
+        .slide-placeholder {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slide-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .slide-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .slide-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .slide-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .slide-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        .slide-content h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .slide-content p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Navigation Arrows */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .prev-btn {
+            left: 15px;
+        }
+
+        .next-btn {
+            right: 15px;
+        }
+
+        /* Dots Navigation */
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Controls */
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .control-btn {
+            padding: 10px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .play-btn {
+            background: #10b981;
+            color: white;
+        }
+
+        .play-btn:hover {
+            background: #059669;
+        }
+
+        .pause-btn {
+            background: #ef4444;
+            color: white;
+        }
+
+        .pause-btn:hover {
+            background: #dc2626;
+        }
+
+        .speed-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+        }
+
+        .speed-control input {
+            width: 100px;
+        }
+
+        .speed-control span {
+            min-width: 40px;
+        }
+
+        .instructions {
+            color: white;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Image Slider</h1>
+    
+    <div class="slider-container" id="slider-container">
+        <div class="slider" id="slider">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <div class="slide-placeholder slide-1">
+                    <span>🌅</span>
+                </div>
+                <div class="slide-content">
+                    <h2>Beautiful Sunrise</h2>
+                    <p>Witness the beauty of nature at dawn</p>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="slide-placeholder slide-2">
+                    <span>🏔️</span>
+                </div>
+                <div class="slide-content">
+                    <h2>Mountain Views</h2>
+                    <p>Explore the majestic mountain ranges</p>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="slide-placeholder slide-3">
+                    <span>🌊</span>
+                </div>
+                <div class="slide-content">
+                    <h2>Ocean Waves</h2>
+                    <p>Feel the calming presence of the sea</p>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="slide">
+                <div class="slide-placeholder slide-4">
+                    <span>🌲</span>
+                </div>
+                <div class="slide-content">
+                    <h2>Forest Adventure</h2>
+                    <p>Discover the secrets of ancient forests</p>
+                </div>
+            </div>
+            
+            <!-- Slide 5 -->
+            <div class="slide">
+                <div class="slide-placeholder slide-5">
+                    <span>🌸</span>
+                </div>
+                <div class="slide-content">
+                    <h2>Spring Blossoms</h2>
+                    <p>Experience the colors of spring</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="nav-btn prev-btn" id="prev-btn">❮</button>
+        <button class="nav-btn next-btn" id="next-btn">❯</button>
+        
+        <!-- Dots Navigation -->
+        <div class="dots-container" id="dots-container"></div>
+    </div>
+    
+    <!-- Controls -->
+    <div class="controls">
+        <button class="control-btn play-btn" id="play-btn">▶ Play</button>
+        <button class="control-btn pause-btn" id="pause-btn">⏸ Pause</button>
+        
+        <div class="speed-control">
+            <label for="speed-slider">Speed:</label>
+            <input type="range" id="speed-slider" min="1" max="5" value="3">
+            <span id="speed-value">3s</span>
+        </div>
+    </div>
+    
+    <div class="instructions">
+        <p>Use arrow buttons, dots, or keyboard arrows to navigate. Press Space to toggle autoplay.</p>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

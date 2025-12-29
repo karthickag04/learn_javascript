@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form Elements Gallery - JavaScript Practice</title>
+    <link rel="stylesheet" href="forms-style.css">
+</head>
+
+<body>
+
+    <h1>📝 HTML Form Elements Gallery - JS Practice</h1>
+
+    <div class="container">
+
+        <!-- Section 1: Text Input Types -->
+        <div class="section">
+            <h2>1. Text Input Types</h2>
+            <p class="description">Various text input types for different kinds of data</p>
+
+            <div class="form-group">
+                <label for="input-text">Text Input <span class="required">*</span></label>
+                <!-- INLINE ONCLICK HANDLER - Method 1 -->
+                <input type="text" id="input-text" placeholder="Enter regular text" required
+                    oninput="handleTextInput(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="input-email">Email Input <span class="required">*</span></label>
+                <input type="email" id="input-email" placeholder="user@example.com" required>
+                <span class="help-text">We'll never share your email.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="input-password">Password Input <span class="required">*</span></label>
+                <input type="password" id="input-password" placeholder="Enter password" required>
+                <span class="help-text">Must be at least 8 characters long.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="input-tel">Telephone Input</label>
+                <input type="tel" id="input-tel" placeholder="+1 (555) 123-4567" pattern="[+0-9\s()-]+">
+            </div>
+
+            <div class="form-group">
+                <label for="input-url">URL Input</label>
+                <input type="url" id="input-url" placeholder="https://example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="input-search">Search Input</label>
+                <input type="search" id="input-search" placeholder="Search...">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript file - loaded at the end of body for DOM access -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
